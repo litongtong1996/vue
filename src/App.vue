@@ -3,6 +3,7 @@
     <!-- 顶部header区域 -->
     <mt-header fixed title="黑马程序员-Vue项目"></mt-header>
     <!-- 中间的路由router-view区域 -->
+    <router-view></router-view>
     <!-- 底部tabbar区域 -->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/home">
