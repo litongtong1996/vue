@@ -3,7 +3,9 @@
     <!-- 顶部header区域 -->
     <mt-header fixed title="黑马程序员-Vue项目"></mt-header>
     <!-- 中间的路由router-view区域 -->
+    <transition>
     <router-view></router-view>
+    </transition>
     <!-- 底部tabbar区域 -->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/home">
@@ -35,5 +37,20 @@
 <style lang="scss" scoped>
 .app-container {
   padding-top: 40px;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+}
+.v-enter{
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+    position: absolute;
+}
+.v-enter-active,
+.v-leave-active{
+  transition: all 0.5s ease;
 }
 </style>
