@@ -35,6 +35,9 @@
 
 
 <style lang="scss" scoped>
+.mint-header{
+  z-index: 99;
+}
 .app-container {
   padding-top: 40px;
   padding-bottom: 50px;

@@ -22,12 +22,15 @@ Vue.http.options.emulateJSON = true
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 // 按需导入mint-UI组件
-import {Header,Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
-Vue.use(Lazyload)
+// import {Header,Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload)
+import MitUI from 'mint-ui'
+Vue.use(MitUI)
+import 'mint-ui/lib/style.css'
 // 导入自己的router路由模块
 import router from './router.js'
 // 导入APP根组件
