@@ -16,15 +16,18 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 // 设置请求的根路径
 Vue.http.options.root = 'http://www.liulongbin.top:3005'
+// 全局设置post时表单数据的组织格式
+Vue.http.options.emulateJSON = true
 // 导入mui的样式
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 // 按需导入mint-UI组件
-import {Header,Swipe,SwipeItem,Button} from 'mint-ui'
+import {Header,Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Button.name, Button)
+Vue.use(Lazyload)
 // 导入自己的router路由模块
 import router from './router.js'
 // 导入APP根组件
