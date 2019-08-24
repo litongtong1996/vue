@@ -65,7 +65,14 @@ export default {
     },
     goDetail(id) {
       // 使用js的形式进行路由导航
-      router.push("/home/goodsinfo/" + id);
+      // 注意：$route是路由参数对象，所有路由中的参数 params,query
+      // $router是路由导航对象，用它可以使用JS代码实现路由的前进，后退
+      // 1.传递字符串
+      // this.$router.push("/home/goodsinfo/" + id);
+      // 2.传递对象
+      // this.$router.push({path:"/home/goodsinfo/" + id});
+      // 3.传递命名的路由
+      this.$router.push({name:"goodsinfo",params:{id}});
     }
   }
 };
