@@ -1,9 +1,6 @@
 <template>
   <div class="goodsinfo-container">
-    <transition
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnter">
+    <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
       <div class="ball" v-show="ballFlag" ref="ball"></div>
     </transition>
     <!-- 商品轮播图区域 -->
@@ -69,7 +66,7 @@ export default {
       lunbotu: [], // 轮播图的数据
       goodsinfo: {}, // 获取到的商品的信息
       ballFlag: false, //控制小球隐藏显示
-      selectedCount:1 //保存用户的购买数量，默认为1
+      selectedCount: 1 //保存用户的购买数量，默认为1
     };
   },
   created() {
@@ -106,6 +103,15 @@ export default {
     },
     addToShopCar() {
       this.ballFlag = !this.ballFlag;
+      // 商品对象,拼接出保存到store中的car
+      var goodsinfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      // 调用store中的mutations来将商品加入购物车
+      this.$store.commit('addToCar',goodsinfo)
     },
     beforeEnter(el) {
       el.style.transform = "translate(0, 0)";
@@ -125,9 +131,9 @@ export default {
     afterEnter(el) {
       this.ballFlag = !this.ballFlag;
     },
-    getSelectedCount(count){
-        // 当子组件把选中的数量传给父组件时，把值保存到data上
-        this.selectedCount=count
+    getSelectedCount(count) {
+      // 当子组件把选中的数量传给父组件时，把值保存到data上
+      this.selectedCount = count;
     }
   },
   components: {
