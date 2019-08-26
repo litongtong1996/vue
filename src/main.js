@@ -39,31 +39,31 @@ var store = new Vuex.Store({
             // 当更新完car时，把car数组存储到本地localStorage
             localStorage.setItem('car', JSON.stringify(state.car))
         },
-        updateGoodsInfo(state, goodsinfo){
+        updateGoodsInfo(state, goodsinfo) {
             // 修改购物车中商品的数量值
-            state.car.some(item=>{
-                if(item.id === goodsinfo.id){
-                    item.count=parseInt(goodsinfo.count)
+            state.car.some(item => {
+                if (item.id === goodsinfo.id) {
+                    item.count = parseInt(goodsinfo.count)
                     return true
                 }
             })
             // 当修改完数量，把最新的购物车数量保存到本地存储中
             localStorage.setItem('car', JSON.stringify(state.car))
         },
-        removeFormCar(state,id){
+        removeFormCar(state, id) {
             // 根据ID从store中的购物车中删除对应的商品数据
-            state.car.some((item,i)=>{
-                if(item.id === id){
-                    state.car.splice(i,1)
+            state.car.some((item, i) => {
+                if (item.id === id) {
+                    state.car.splice(i, 1)
                     return true
                 }
             })
             // 将删除完毕的购物车数据保存到本地
             localStorage.setItem('car', JSON.stringify(state.car))
         },
-        updateGoodsSelected(state,info){
-            state.car.some(item=>{
-                if(item.id === info.id){
+        updateGoodsSelected(state, info) {
+            state.car.some(item => {
+                if (item.id === info.id) {
                     item.selected = info.selected
                 }
             })
@@ -89,10 +89,23 @@ var store = new Vuex.Store({
             })
             return o
         },
-        getGoodsSelected(state){
+        getGoodsSelected(state) {
             var o = {}
             state.car.forEach(item => {
                 o[item.id] = item.selected
+            })
+            return o
+        },
+        getGoodsCountAndAmount(state) {
+            var o = {
+                count: 0, // 勾选的数量
+                amount: 0 // 勾选的总价
+            }
+            state.car.forEach(item => {
+                if (item.selected) {
+                    o.count += item.count
+                    o.amount += item.price * item.count
+                }
             })
             return o
         }
@@ -115,9 +128,6 @@ Vue.http.options.emulateJSON = true
 // 导入mui的样式
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
-// 安装图片预览插件
-import VuePreview from 'vue-preview'
-Vue.use(VuePreview)
 // 按需导入mint-UI组件
 // import {Header,Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
 // Vue.component(Header.name, Header)
@@ -128,6 +138,9 @@ Vue.use(VuePreview)
 import MitUI from 'mint-ui'
 Vue.use(MitUI)
 import 'mint-ui/lib/style.css'
+// 安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 // 导入自己的router路由模块
 import router from './router.js'
 // 导入APP根组件

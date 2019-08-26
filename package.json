@@ -1,7 +1,7 @@
 {
   "name": "01.webpack-study",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. git add .\r 2. git commit -m '提交信息'\r 3. git push\r ## 制作首页APP组件\r 1. 完成header区域，使用的是miut-ul中的header的组件\r 2. 制作底部的 Tabbar 区域，使用的是 MUI 的 Tabbar.html\r + 在制作 购物车 小图标的时候，操作会相对多一些：\r + 先把 扩展图标的 css 样式，拷贝到 项目中\r + 拷贝 扩展字体库 ttf 文件，到项目中\r + 为 购物车 小图标 ，添加 如下样式 `mui-icon mui-icon-extra mui-icon-extra-cart`\r 3. 要在 中间区域放置一个 router-view 来展示路由匹配到的组件\r ## 改造 tabbar 为 router-link",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,12 +34,20 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "mint-ui": "^2.2.9",
+    "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
     "vue": "^2.5.2",
     "vue-preview": "^1.1.3",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little1996/vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/little1996/vue/issues"
+  },
+  "homepage": "https://github.com/little1996/vue#readme"
 }
